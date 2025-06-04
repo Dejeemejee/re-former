@@ -1,0 +1,52 @@
+<%# <h2>Seyi Shay!!!!!</h2>
+
+<form action="/users" method="post" accept-charset="UTF-8">
+   
+   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>
+
+  <%# <div class="username">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="user[username]">
+  </div>
+  
+  <div class="email">
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="user[email]">
+  </div>
+
+  <div class="password">
+  <label for="password">Password: </label>
+  <input type="password" id="password" name="user[password]">
+  </div>
+  
+  <input type="submit" value="Click me">
+</form> %>
+
+
+
+<%= form_with model: @user do |form| %>
+
+
+<div>
+  <%= form.label :username, 'Your Username here:', value: "JohnDoe123"  %>
+  <%= form.text_field :username %>
+</div>
+
+
+<div>
+  <%= form.label :email %>
+  <%= form.email_field :email, placeholder: "example@example.com" %>
+</div>
+
+<div>
+  <%= form.label :password %>
+  <%= form.password_field :password %>
+</div>
+
+<div>
+  <%= form.submit "Sign Up" %>
+</div>
+
+<% end %>
+
+<%= link_to "Edit form", edit_user_path(@user) %>
